@@ -1,0 +1,86 @@
+<%- include("../partials/header") %>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <p class="text-center text-blue" id="name">
+               Wyszukiwanie zapisów na kurs po parametrze <%= param %>: <%= applications.length %>
+            </p>
+            <form action="/applications/search" method="get">
+                <div class="input-group mb-3">
+                    <input type="search" id="news" class="form-control" value="<%= param %>" name="name" placeholder="Wpisz imię/nazwisko" aria-label="Wpisz imię/nazwisko" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn-blue" type="submit" style="border:none;"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+            <div class="dropdown text-center">
+                <button class="btn-blue dropdown-toggle justify-content-center" id="applications" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Wyszukaj po kategorii
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background: #eeeeee">
+                  
+
+                    <a class="dropdown-item" href="/applications/category/B">Kategoria B</a>
+                    <a class="dropdown-item" href="/applications/category/A">Kategoria A</a>
+                    <a class="dropdown-item" href="/applications/category/AM">Kategoria AM</a>
+                    <a class="dropdown-item" href="/applications/category/A1">Kategoria A1</a>
+                    <a class="dropdown-item" href="/applications/category/A2">Kategoria A2</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <% if(applications.length === 0){ %>
+            <div class="col-lg-6 col-md-12 text-center">
+                <div class="alert alert-info">
+                    Nie znaleźliśmy żadnego zapisu na kurs po parametrze <%= param %>
+                </div>
+            </div>
+            
+        <% } else { %>
+
+            <% for(let i=applications.length-1;i>=0;i--){ %>
+                <div class="col-lg-4 col-md-6 col-sm-12"  style="margin-top:10px">
+                    <div class="card" style="background: #eeeeee">
+                        <div class="card-title text-center text-blue toyota">
+                            <br>
+                            Zapis na kurs <%= applications[i]._id %>
+                        </div>
+                        <div class="card-body">
+    
+                            <p class="info">Imię i nazwisko: <strong><%= applications[i].name %></strong></p>
+                            <p class="info">Nr telefonu: <strong><%= applications[i].phone %></strong></p>
+                            <p class="info">Email: <strong><%= applications[i].email %></strong></p>
+                            <p class="info">Kategoria: <strong><%= applications[i].course.category %></strong></p>
+                            <p class="info">Data i godzina: <strong><%= applications[i].event.city %>, <%= applications[i].event.date %>
+                                <%= applications[i].event.time %></strong></p>
+                            <p>
+                                <% if(applications[i].isApplicated === false){ %>
+                                <form action="/application/<%= applications[i]._id %>/accepted" method="post">
+                                    <input type="submit" value="Zapisany na kurs" class="btn btn-outline-success">
+                                </form>
+                                <% } else { %>
+                                <a href="/application/<%= applications[i]._id %>/delete" class="btn-blue">Usuń
+                                    aplikację</a>
+                                <% } %>
+    
+    
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+
+
+
+
+        <% } %>
+    </div>
+</div>
+
+<%- include("../partials/footera") %>

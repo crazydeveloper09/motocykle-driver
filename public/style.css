@@ -1,0 +1,144 @@
+body,html {
+    
+    background: linear-gradient(#121213,#8a8a8a);
+}
+.bg-gradient {
+    background: linear-gradient(#1960d1, #131314);
+}
+.nav-link{
+    font-family: 'Nunito', sans-serif;
+    text-transform: uppercase;
+}
+
+#name {
+    font-family: 'Nunito', sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    color: #1960d1;
+}
+.school {
+    font-family: 'Nunito', sans-serif;
+    font-size: 25px;
+    color: grey;
+    font-weight: 700;
+}
+
+.info {
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    
+}
+.footer {
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+
+}
+
+.title {
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1960d1;
+}
+.side-title {
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    padding: 12px;
+    margin-bottom: 0;
+}
+.toyota {
+    font-family: 'Nunito', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    color: #1960d1;
+}
+.logo {
+    font-family: 'Nunito', sans-serif;
+    text-transform: uppercase;
+}
+input[type=text],
+input[type=tel],
+input[type=email],
+input[type=password],
+input[type=time],
+input[type=number],
+input[type=date] {
+    background: none;
+    border: none;
+    border-bottom: 1px solid black;
+    color: black;
+    font-family: 'Nunito', sans-serif;
+}
+.sidebar {
+    background: linear-gradient(#131314, #1960d1);
+}
+input[type=text]::placeholder,
+input[type=tel]::placeholder,
+input[type=email]::placeholder,
+input[type=password]::placeholder,
+input[type=number]::placeholder {
+    color: black;
+    font-family: 'Nunito', sans-serif;
+}
+
+#textarea::placeholder {
+    
+    color: black;
+    font-family: 'Nunito', sans-serif;
+}
+
+#textarea {
+    background: none;
+    border: none;
+    border-bottom: 1px solid black;
+    color: black;
+    font-family: 'Nunito', sans-serif;
+}
+.card {
+    background: #eeeeee;
+    
+}
+#side {
+    display: block;
+}
+input[type=search] {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #1960d1;
+    color: #1960d1;
+    font-family: 'Nunito', sans-serif;
+}
+
+input[type=search]::placeholder {
+    color: #1960d1;
+    font-family: 'Nunito', sans-serif;
+}
+
+.text-blue {
+    color: #1960d1;
+}
+
+.btn-blue {
+    color: #1960d1;
+    padding: 7px 12px;
+    border: 1px solid #1960d1;
+    border-radius: 0.4em;
+}
+.btn-blue:hover {
+    background: #1960d1;
+    color: white;
+}
+
+@media (max-width: 992px) {
+    .bg-gradient {
+        background: linear-gradient(#131314, #1960d1);
+    }
+    .navbar {
+        position: fixed;
+    }
+    #side {
+        display: none;
+    }
+}

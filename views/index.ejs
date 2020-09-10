@@ -1,0 +1,144 @@
+<%- include("partials/header") %>
+<br>
+
+<% if(announcements.length > 0){ %>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="alert alert-info">
+                    <%= announcements[announcements.length-1].text %>
+                    <% if(currentUser){ %>
+                        <a href="/announcements/<%= announcements[announcements.length-1]._id %>/edit" class="btn btn-dark">Edytuj</a>
+                        <a href="/announcements/<%= announcements[announcements.length-1]._id %>/delete" class="btn btn-secondary">Usuń</a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+<% } %>
+<% if(error.length > 0){ %>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="alert alert-danger" role="alert">
+                    <%= error %>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<% } %>
+<% if(success.length > 0){ %>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="alert alert-success" role="alert">
+                    <%= success %>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<% } %>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 d-md-none d-lg-block" id="side">
+                <%- include("partials/side") %>
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <div class="card" style="background: #eeeeee">
+                    <div class="card-title text-center" id="name">
+                        
+                        Witamy
+                        <br>
+                        <span class="school">W szkole nauki jazdy</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="info text-center">Nauczymy Was, jak dobrze prowadzić motocykl
+                            i w jaki sposób korzystać z przywileju, jakim jest prawo jazdy.</p>
+                            
+                           <ul>
+                                <span class="title">Prowadzimy ustawowe szkolenie na prawo jazdy kat. A1, A2, A</span>
+                                <li class="info">
+                                    podstawowe –  zajęcia teoretyczne i praktyczne
+                                </li>
+                                <li class="info">uzupełniające - na prośbę osoby szkolonej.</li>
+                           </ul> 
+
+
+
+                           <ul>
+                            <span class="title">Oferujemy kursy prawa jazdy na kat. A1, A2, A</span>
+                            
+                            <li class="info">Suzuki Gladius kat A</li>
+                            <li class="info">Honda 125 CBR kat A1</li>
+                            <li class="info">Kawasaki ER5 kat A2</li>
+                           
+                            <br>
+                            <br>
+                            <li class="info">zajęcia teoretyczne</li>
+                            <li class="info">zajęcia praktyczne </li>
+                            <li class="info">egzamin wewnętrzny</li>
+                            <li class="info">jazda w miastach WORD (Głogów )</li>
+                            <li class="info">dogodne godziny jazdy</li>
+                            <li class="info">zajęcia z pierwszej pomocy</li>
+                            <li class="info">niezbędne pomoce szkoleniowe gratis !!!</li>
+                       </ul> 
+
+                        <ul>
+                            <span class="title">Zajmujemy się również jazdami doszkalającymi:</span>
+                            <li class="info">
+                                gdy zachodzi potrzeba poprawienia dotychczasowej techniki jazdy,
+                            </li>
+                            <li class="info">kiedy chcą Państwo poprawić swoje umiejętności, bądź przypomnieć sobie jak się prowadzi samochód.</li>
+                        </ul> 
+
+
+
+
+
+                        <ul>
+                            <span class="title">Kursy dodatkowe:</span>
+                            <li class="info">
+                                jazdy doszkalające
+                            </li>
+                            <li class="info">dodatkowe zajęcia praktyczne</li>
+                            <li class="info">
+                                dodatkowa zajęcia teoretyczne
+                            </li>
+                            <li class="info">wynajem placu manewrowego w WORD Głogów</li>
+                        </ul> 
+
+                        <ul>
+                            <span class="title">Oferujemy również pomoc w dodatkowych czynnościach, jakimi są m.in.:</span>
+                            <li class="info">
+                                zarezerwowanie terminu na egzamin państwowy w WORD-ie,
+                            </li>
+                            <li class="info">przyjeżdżamy do Naszych Kursantów.</li>
+                        </ul> 
+                        <p class="title">Każdy kursant przed rozpoczęciem kursu musi wyrobić profil kandydata na kierowcę tj. PKK. Więcej informacji w dziale PKK.</p>
+                        <br>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6 col-md-12 text-center">
+                                <img src="/stop.png" height="150" width="150" class="rounded">
+                            </div>
+                            <div class="col-lg-6 col-md-12 text-center">
+                                <img src="/rondo.png" height="150" width="150" class="rounded">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $("#home").addClass("active");
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            $("#home").css("text-decoration", "underline");
+        } else {
+            $("#home").css("border-bottom", "1px solid white");
+        }
+    </script>
+<%- include("partials/footer") %>   
