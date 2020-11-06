@@ -16,8 +16,47 @@ dotenv.config();
 app.use(methodOverride("_method"));
 app.use(flash());
 
+router.get("/", function(req, res){
+   
+    res.redirect("/subpages/strona-główna")
+               
+   
+})
+router.get("/home", (req, res) => {
+    
+    Announcement.find({}, function(err, announcements){
+        if(err){
+            console.log(err)
+        } else {
+                    
+            res.render("index", {currentUser: req.user, header:"Driver Nauka Jazdy | Motocykle | Strona Główna", announcements: announcements});
+        }
+    });
+           
+        
+})
+router.get("/about", function(req, res){
+    
+    res.render("about", {currentUser: req.user, header:"Driver Nauka Jazdy | Motocykle | O Nas"});
+           
+       
+    
+})
 
-
+router.get("/contact", function(req, res){
+    
+    Driver.findOne({username: 'Admin'}).populate(["motorcycleOffices", "pictures"]).exec((err, user) => {
+        if(err) {
+            console.log(err)
+        } else {
+            res.render("contact", {currentUser: req.user, header:"Driver Nauka Jazdy | Motocykle | Kontakt", user:user});
+        }
+    })
+            
+           
+       
+    
+})
 
 router.get("/login", function(req, res){
     res.render("login", {header:"Driver Nauka Jazdy | Motocykle | Logowanie"});
@@ -28,7 +67,7 @@ router.get("/register", function(req, res){
 });
 
 router.post("/login", passport.authenticate("local", {
-    successRedirect: "/subpages/strona-główna",
+    successRedirect: "/",
     failureRedirect: "/login",
     failureFlash: true
 }), function(req, res) {

@@ -4,6 +4,7 @@ const express             = require("express"),
     methodOverride        = require("method-override"),
     Event                = require("../models/event"),
     Characteristic                = require("../models/characteristic"),
+	Course                = require("../models/course"),
     flash                 = require("connect-flash"),
     dotenv                = require("dotenv");
 
@@ -14,7 +15,7 @@ app.use(flash());
 
 router.get("/new", isLoggedIn, function(req, res){
    
-    res.render("./characteristic/new", {currentUser: req.user,header:"Driver Nauka Jazdy | Motocykle | Dodaj cechę charakterystyczną", course_id: req.params.id});
+    res.render("./characteristic/new", {currentUser: req.user,header:"Driver Nauka Jazdy | Motocykle | Dodaj cechę charakterystyczną", course_id: req.params.course_id});
            
         
    
@@ -25,7 +26,7 @@ router.post("/", isLoggedIn, function(req, res){
         if(err){
             console.log(err)
         } else {
-            Course.findById(req.params.id, function(err, course){
+            Course.findById(req.params.course_id, function(err, course){
                 if(err){
                     console.log(err)
 
@@ -46,7 +47,7 @@ router.get("/:characteristic_id/edit", isLoggedIn, function(req, res){
             console.log(err);
         } else {
            
-            res.render("./characteristic/edit", {currentUser: req.user,header:"Driver Nauka Jazdy | Motocykle | Edytuj cechę charakterystyczną",  characteristic:characteristic, course_id: req.params.id});
+            res.render("./characteristic/edit", {currentUser: req.user,header:"Driver Nauka Jazdy | Motocykle | Edytuj cechę charakterystyczną",  characteristic:characteristic, course_id: req.params.course_id});
                    
                
             
@@ -60,7 +61,16 @@ router.put("/:characteristic_id", isLoggedIn, function(req, res){
         if(err){
             console.log(err);
         } else {
-            res.redirect("/subpages/strona-główna");
+            Course.findById(req.params.course_id, function(err, course){
+                if(err){
+                    console.log(err)
+
+                } else {
+                   
+                    res.redirect("/courses/" + course.category)
+                }
+            })
+            
         }
     });
 });
@@ -69,7 +79,15 @@ router.get("/:characteristic_id/delete", isLoggedIn, function(req, res){
         if(err){
             console.log(err)
         } else {
-            res.redirect("back")
+            Course.findById(req.params.course_id, function(err, course){
+                if(err){
+                    console.log(err)
+
+                } else {
+                   
+                    res.redirect("/courses/" + course.category)
+                }
+            })
         }
         
     })
@@ -80,7 +98,7 @@ function isLoggedIn(req, res, next) {
         return next();
     }
     req.flash("error", "Nie masz dostępu do tej strony");
-    res.redirect("/");
+    res.redirect("/subpages/strona-główna");
 }
 
 module.exports = router;

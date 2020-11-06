@@ -60,7 +60,7 @@ router.post("/", isLoggedIn, function(req, res){
         category: req.body.category, 
         price: req.body.price, 
         additionalPrice: req.body.additionalPrice,
-        type: 'car',
+        type: 'motorcycle',
         sale: req.body.sale 
     })
     Course.create(newCourse, function(err, createdCourse){
@@ -105,7 +105,7 @@ router.post("/:id/add/picture", upload.single("picture"), function(req, res){
                 Picture.create({link: result.secure_url}, (err, createdPicture) => {
                     course.pictures.push(createdPicture);
                     course.save();
-                    res.redirect("/courses/" + course.category)
+                    res.redirect("/courses" + course.category)
                 })
                 
             }
@@ -119,7 +119,7 @@ router.post("/:id", isLoggedIn, function(req, res){
         if(err){
             console.log(err)
         } else {
-            updatedCourse.type = "motorcycle";
+            updatedCourse.type = "car";
             updatedCourse.save();
             res.redirect("/courses/" + updatedCourse.category);
         }

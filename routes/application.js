@@ -24,7 +24,7 @@ router.get("/search", isLoggedIn, (req, res) => {
             console.log(err);
         } else {
            
-            res.render("./applications/search", {applications: applications, currentUser: req.user, param: req.query.name, header: `Driver Nauka Jazdy | Zapisy na kursy | Wyszukiwanie po parametrze ${req.query.name}`})
+            res.render("./applications/search", {applications: applications, currentUser: req.user, param: req.query.name, header: `Driver Nauka Jazdy | Motocykle | Zapisy na kursy | Wyszukiwanie po parametrze ${req.query.name}`})
                    
                 
             
@@ -42,7 +42,7 @@ router.get("/category/:category", isLoggedIn, function(req, res){
                     console.log(err);
                 } else {
                     
-                    res.render("./applications/category", {applications: applications, currentUser: req.user, param: req.params.category, header: `Driver Nauka Jazdy | Zapisy na kursy | Wyszukiwanie po parametrze ${req.params.category}`})
+                    res.render("./applications/category", {applications: applications, currentUser: req.user, param: req.params.category, header: `Driver Nauka Jazdy | Motocykle | Zapisy na kursy | Wyszukiwanie po parametrze ${req.params.category}`})
                            
                         
                     
@@ -58,7 +58,7 @@ router.get("/new", function(req, res){
             console.log(err);
         } else {
           
-            res.render("./applications/new", {currentUser: req.user,header:"Driver Nauka Jazdy | Zapisz się na kurs", event:event});
+            res.render("./applications/new", {currentUser: req.user,header:"Driver Nauka Jazdy | Motocykle | Zapisz się na kurs", event:event});
                    
                
         }
@@ -72,7 +72,7 @@ router.get("/", isLoggedIn, function(req, res){
             console.log(err);
         } else {
             
-            res.render("./applications/index", {currentUser: req.user, header:"Driver Nauka Jazdy | Zapisy na kurs",applications:applications, events:events});
+            res.render("./applications/index", {currentUser: req.user, header:"Driver Nauka Jazdy | Motocykle | Zapisy na kurs",applications:applications, events:events});
                 
             
         }

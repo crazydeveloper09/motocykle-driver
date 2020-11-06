@@ -71,7 +71,7 @@ router.get("/:id", function(req, res){
 
 router.post("/", upload.single("profile"), function(req, res){
     cloudinary.uploader.upload(req.file.path, function(result) {
-        Gallery.create({title: req.body.title, profile:result.secure_url, type: req.body.type}, function(err,createdGallery){
+        Gallery.create({title: req.body.title, profile:result.secure_url, pictures:[], type: req.body.type}, function(err,createdGallery){
             if(err){
                 console.log(err);
             } else {
