@@ -46,9 +46,8 @@
                            <ul>
                                <li class="info">Regularna cena: <strong><ins><%= course.price %>zł</ins></strong> </li>
                                <% if (course.additional) { %>
-                                    <li class="info">Dodatkowa godzina: <strong><ins><%= course.additionalPrice %>zł</ins></strong> </li>
-                               <% } %>
-                              
+                                <li class="info">Dodatkowa godzina: <strong><ins><%= course.additionalPrice %>zł</ins></strong> </li>
+                           <% } %>
                                <% if(course.installments.length != 0){ %>
                                     <li class="info">Raty:
                                         <ol>
@@ -58,7 +57,6 @@
                                                 <% } else { %>
                                                     <li class="info"><%= installment.amount %>zł</li>
                                                 <% } %>
-                                                
                                                 <% if(currentUser){ %>
                                                     <a href="/courses/<%= course._id %>/installments/<%= installment._id %>/edit" class="info text-blue" style="font-size: 15px;">Edytuj ratę</a>
                                                     <a href="/courses/<%= course._id %>/installments/<%= installment._id %>/delete" class="info text-blue" style="font-size: 15px;">Usuń ratę</a>
@@ -100,7 +98,7 @@
                                 </ul>
                            <% } %>
                            <% if(currentUser){ %>
-                            <a href="/courses/<%= course._id %>/edit" class="btn-blue">Edytuj kurs</a>
+                            <a href="/courses/<%= course._id %>/edit" class="btn btn-danger">Edytuj kurs</a>
                             <a href="/courses/<%= course._id %>/add/picture" class="btn btn-success">Dodaj zdjęcie</a>
                             <% } %>
                            <br>

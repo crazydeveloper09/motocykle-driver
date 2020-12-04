@@ -46,6 +46,7 @@ router.get("/:category", function(req, res){
         if(err){
             console.log(err)
         } else {
+			console.log(req.params.category)
             res.render("./courses/show", {currentUser: req.user,header:"Driver Nauka Jazdy | Motocykle | Oferta | Kategoria " + course.category, course: course});
         }
     })
@@ -119,7 +120,7 @@ router.post("/:id", isLoggedIn, function(req, res){
         if(err){
             console.log(err)
         } else {
-            updatedCourse.type = "car";
+            updatedCourse.type = "motorcycle";
             updatedCourse.save();
             res.redirect("/courses/" + updatedCourse.category);
         }

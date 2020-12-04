@@ -30,25 +30,25 @@ body,html {
 }
 .el {
     margin-top: 30px;
-    transform: rotate(-30deg);
+    transform: rotate(-15deg);
 }
 #website {
     color:white;
     text-transform: uppercase;
     font-family: 'Nunito', sans-serif;
-    font-size: 50px;
+    font-size: 45px;
 }
 #infoWebsite {
     color:white;
     text-transform: uppercase;
     font-family: 'Nunito', sans-serif;
-    font-size: 30px;
+    font-size: 25px;
 }
 .offices {
     color:white;
     
     font-family: 'Nunito', sans-serif;
-    font-size: 22px;
+    font-size: 19px;
     
 }
 in

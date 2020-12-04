@@ -39,7 +39,7 @@ router.get("/:link_id/edit", isLoggedIn, function(req, res){
         if(err){
             console.log(err);
         } else {
-            res.render("./links/edit", {currentUser: req.user,header:"Driver Nauka Jazdy | Motocykle | Edytuj polecany link", link:link});
+            res.render("./links/edit", {currentUser: req.user,header:"Driver Nauka Jazdy | Samochody | Edytuj polecany link", link:link});
         }
     })
 });

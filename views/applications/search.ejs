@@ -12,12 +12,12 @@
                 <div class="input-group mb-3">
                     <input type="search" id="news" class="form-control" value="<%= param %>" name="name" placeholder="Wpisz imię/nazwisko" aria-label="Wpisz imię/nazwisko" aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                        <button class="btn-blue" type="submit" style="border:none;"><i class="fas fa-search"></i></button>
+                        <button class="btn btn-blue" type="submit" style="border:none;"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
             </form>
             <div class="dropdown text-center">
-                <button class="btn-blue dropdown-toggle justify-content-center" id="applications" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-blue dropdown-toggle justify-content-center" id="applications" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                    Wyszukaj po kategorii
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background: #eeeeee">
@@ -65,7 +65,7 @@
                                     <input type="submit" value="Zapisany na kurs" class="btn btn-outline-success">
                                 </form>
                                 <% } else { %>
-                                <a href="/application/<%= applications[i]._id %>/delete" class="btn-blue">Usuń
+                                <a href="/application/<%= applications[i]._id %>/delete" class="btn btn-blue">Usuń
                                     aplikację</a>
                                 <% } %>
     

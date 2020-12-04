@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <% if(currentUser){ %>
                         <div class="dropdown">
-                            <a class="btn-blue dropdown-toggle justify-content-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+                            <a class="btn btn-blue dropdown-toggle justify-content-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
                                Modyfikacja
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background: #eeeeee">
@@ -47,7 +47,7 @@
                                     <img src="<%= gallery.pictures[i].link %>" alt="" class="img-thumbnail">
                                     <% if(currentUser){ %>
                                         <br>
-                                        <a href="/gallery/pictures/<%= gallery.pictures[i]._id %>/delete" class="info text-danger">Usuń zdjęcie</a>
+                                        <a href="/gallery/pictures/<%= gallery.pictures[i]._id %>/delete" class="info text-blue">Usuń zdjęcie</a>
                                     <% } %>
                                 </div>
                             <% } %>

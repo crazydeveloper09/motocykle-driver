@@ -3,8 +3,8 @@ const express             = require("express"),
     router                = express.Router({mergeParams:true}),
     methodOverride        = require("method-override"),
     Event                = require("../models/event"),
-    Characteristic                = require("../models/characteristic"),
 	Course                = require("../models/course"),
+    Characteristic                = require("../models/characteristic"),
     flash                 = require("connect-flash"),
     dotenv                = require("dotenv");
 
@@ -14,8 +14,15 @@ app.use(methodOverride("_method"));
 app.use(flash());
 
 router.get("/new", isLoggedIn, function(req, res){
+    Course.findById(req.params.course_id, function(err, course){
+        if(err){
+            console.log(err)
+
+        } else {
+            res.render("./characteristic/new", {currentUser: req.user,header:"Driver Nauka Jazdy | Motocykle | Dodaj cechę charakterystyczną", course: course});
+        }
+    })
    
-    res.render("./characteristic/new", {currentUser: req.user,header:"Driver Nauka Jazdy | Motocykle | Dodaj cechę charakterystyczną", course_id: req.params.course_id});
            
         
    
@@ -46,10 +53,13 @@ router.get("/:characteristic_id/edit", isLoggedIn, function(req, res){
         if(err){
             console.log(err);
         } else {
-           
-            res.render("./characteristic/edit", {currentUser: req.user,header:"Driver Nauka Jazdy | Motocykle | Edytuj cechę charakterystyczną",  characteristic:characteristic, course_id: req.params.course_id});
-                   
-               
+            Course.findById(req.params.course_id, function(err, course){
+                if(err){
+                    console.log(err)
+                } else {
+                    res.render("./characteristic/edit", {currentUser: req.user,header:"Driver Nauka Jazdy | Motocykle | Edytuj cechę charakterystyczną",  characteristic:characteristic, course:course});
+                }
+            })
             
         }
     })

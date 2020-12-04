@@ -18,30 +18,11 @@ app.use(flash());
 
 router.get("/", function(req, res){
    
-    res.redirect("/subpages/strona-główna")
+    res.redirect("/subpages/strona-główna");
                
    
 })
-router.get("/home", (req, res) => {
-    
-    Announcement.find({}, function(err, announcements){
-        if(err){
-            console.log(err)
-        } else {
-                    
-            res.render("index", {currentUser: req.user, header:"Driver Nauka Jazdy | Motocykle | Strona Główna", announcements: announcements});
-        }
-    });
-           
-        
-})
-router.get("/about", function(req, res){
-    
-    res.render("about", {currentUser: req.user, header:"Driver Nauka Jazdy | Motocykle | O Nas"});
-           
-       
-    
-})
+
 
 router.get("/contact", function(req, res){
     
@@ -99,9 +80,6 @@ router.post("/register", function(req, res){
    
 
 
-router.get("/pkk", function(req, res){
-    res.render("pkk", {currentUser: req.user, header:"Driver Nauka Jazdy | Motocykle | PKK"});
-})
 
 
 router.post("/feedback", function(req, res, next){
