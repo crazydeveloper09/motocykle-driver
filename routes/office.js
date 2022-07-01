@@ -56,7 +56,7 @@ router.post("/", isLoggedIn, function(req, res){
                     if(err){
                         console.log(err);
                     } else {
-                        driver.motorcycleOffices.push(office);
+                        driver.carOffices.push(office);
                         driver.save();
                         res.redirect("/contact");
                     }

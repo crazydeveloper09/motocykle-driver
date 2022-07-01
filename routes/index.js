@@ -26,7 +26,7 @@ router.get("/", function(req, res){
 
 router.get("/contact", function(req, res){
     
-    Driver.findOne({username: 'Admin'}).populate(["motorcycleOffices", "pictures"]).exec((err, user) => {
+    Driver.findOne({username: 'Admin'}).populate(["carOffices", "pictures"]).exec((err, user) => {
         if(err) {
             console.log(err)
         } else {

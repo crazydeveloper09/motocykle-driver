@@ -50,7 +50,7 @@ router.get("/courses", (req, res) => {
 
 router.get("/driver", (req, res) => {
     let username = "Admin"
-    Driver.findOne({username: username}).populate("motorcycleOffices").exec((err, driver) => {
+    Driver.findOne({username: username}).populate("carOffices").exec((err, driver) => {
         if(err){
             res.json(err);
         } else {

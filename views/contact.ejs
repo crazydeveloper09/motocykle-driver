@@ -22,14 +22,14 @@
                         <span class="school">Jak do nas dotrzeć?</span>
                     </div>
                     <div class="row">
-                        <% if(user.motorcycleOffices.length === 0){ %>
+                        <% if(user.carOffices.length === 0){ %>
                             <div class="col-lg-6 col-md-12 justify-content-center">
                                 <div class="alert alert-light text-center">
                                     Nie dodaliśmy jeszcze żadnego biura
                                 </div>
                             </div>
                         <% } else { %>
-                            <% user.motorcycleOffices.forEach((office) => { %>
+                            <% user.carOffices.forEach((office) => { %>
                                 <div class="col-lg-12 text-center" style="margin-top: 11px">
                                     <p class="title text-blue"><%= office.name %></p>
                                     <p class="info"><strong><%= office.what %></strong></p>
@@ -87,8 +87,8 @@
                                 <textarea placeholder="Treść wiadomości" id="textarea" name="text" class="form-control"></textarea>
                                 <br>
                                 <div class="d-inline" style="margin-bottom: 11px;">
-                                    <input type="submit" value="Wyślij wiadomość" class="btn btn-outline-danger">
-                                    <input type="reset" value="Wyczyść" class="btn btn-outline-danger">
+                                    <input type="submit" value="Wyślij wiadomość" class="btn btn-outline-primary">
+                                    <input type="reset" value="Wyczyść" class="btn btn-outline-primary">
                                    
                                 </div>
                             </form>
