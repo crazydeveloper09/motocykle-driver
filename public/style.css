@@ -9,6 +9,7 @@ body,html {
     text-transform: uppercase;
 }
 
+
 #name {
     font-family: 'Poppins', sans-serif;
     font-size: 35px;
@@ -148,6 +149,10 @@ input[type=search]::placeholder {
     color: white;
 }
 
+.dropdown-menu {
+    background: #eeeeee;
+}
+
 @media (max-width: 992px) {
     .bg-gradient {
         background: linear-gradient(#131314, #1960d1);
@@ -157,5 +162,16 @@ input[type=search]::placeholder {
     }
     #side {
         display: none;
+    }
+
+    .dropdown-menu.show {
+        background: transparent;
+        border: none;
+
+    }
+
+    a.dropdown-item {
+        color: white;
+        letter-spacing: 0.3px;
     }
 }
