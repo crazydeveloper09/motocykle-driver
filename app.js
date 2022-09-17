@@ -1,6 +1,7 @@
 const express               = require("express"),
     app                     = express(),
     mongoose                = require("mongoose"),
+    helmet                  = require("helmet"),
     Driver                  = require("./models/driver"),
     passportLocalMongoose   = require("passport-local-mongoose"),
     passport                = require("passport"),
@@ -19,7 +20,7 @@ const express               = require("express"),
     listElementRoutes             = require("./routes/listElement"),
     apiRoutes           = require("./routes/api"),
     galleryRoutes           = require("./routes/gallery"),
-	   methodOverride        = require("method-override"),
+	methodOverride        = require("method-override"),
     indexRoutes             = require("./routes/index"),
     LocalStrategy           = require("passport-local"),
     bodyParser              = require("body-parser"),
@@ -35,6 +36,9 @@ app.use(flash());
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
+app.use(helmet({
+    contentSecurityPolicy: false,
+}))
 
 app.use(require("express-session")({
     secret: "heheszki",
