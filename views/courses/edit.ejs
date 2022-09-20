@@ -19,18 +19,18 @@
 
                     <p class="username">Edytuj kategorię</p>
                     <input type="text" placeholder="Kategoria" value="<%= course.category %>" name="course[category]"
-                        class="form-control">
+                        class="form-control" required>
                     <br>
                     <p class="username">Edytuj cenę kursu</p>
                     <input type="number" name="course[price]" value="<%= course.price %>" placeholder="Cena kursu"
-                        class="form-control">
+                        class="form-control" required>
                     <br>
                     <p class="username">Edytuj cenę dodatkowej godziny</p>
                     <input type="number" name="course[additionalPrice]" value="<%= course.additionalPrice %>"
-                        placeholder="Cena dodatkowej godziny" class="form-control">
+                        placeholder="Cena dodatkowej godziny" class="form-control" required>
                     <br>
                     <p class="username">Edytuj promocyjną cenę</p>
-                    <input type="number" name="course[sale]" value="<%= course.sale %>" placeholder="Promocyjna cena" class="form-control">
+                    <input required type="number" name="course[sale]" value="<%= course.sale %>" placeholder="Promocyjna cena" class="form-control">
                     <br>
 
                     <input type="submit" value="Edytuj kurs" class="btn btn-danger button btn-gradient">

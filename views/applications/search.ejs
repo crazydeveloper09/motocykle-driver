@@ -21,11 +21,7 @@
                    Wyszukaj po kategorii
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background: #eeeeee">
-                  
-
-                    <a class="dropdown-item" href="/applications/category/B">Kategoria B</a>
                     <a class="dropdown-item" href="/applications/category/A">Kategoria A</a>
-                    <a class="dropdown-item" href="/applications/category/AM">Kategoria AM</a>
                     <a class="dropdown-item" href="/applications/category/A1">Kategoria A1</a>
                     <a class="dropdown-item" href="/applications/category/A2">Kategoria A2</a>
                     
@@ -36,7 +32,7 @@
     <br>
     <div class="row">
         <% if(applications.length === 0){ %>
-            <div class="col-lg-6 col-md-12 text-center">
+            <div class="col-lg-12 text-center">
                 <div class="alert alert-info">
                     Nie znaleźliśmy żadnego zapisu na kurs po parametrze <%= param %>
                 </div>
@@ -57,7 +53,7 @@
                             <p class="info">Nr telefonu: <strong><%= applications[i].phone %></strong></p>
                             <p class="info">Email: <strong><%= applications[i].email %></strong></p>
                             <p class="info">Kategoria: <strong><%= applications[i].course.category %></strong></p>
-                            <p class="info">Data i godzina: <strong><%= applications[i].event.city %>, <%= applications[i].event.date %>
+                            <p class="info">Data i godzina: <strong><%= applications[i].event.office.city %>, <%= applications[i].event.date %>
                                 <%= applications[i].event.time %></strong></p>
                             <p>
                                 <% if(applications[i].isApplicated === false){ %>

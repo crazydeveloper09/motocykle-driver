@@ -19,7 +19,13 @@ router.get("/new", isLoggedIn, function(req, res){
             console.log(err)
 
         } else {
-            res.render("./events/new", {currentUser: req.user,header:"Driver Nauka Jazdy | Motocykle | Dodaj termin", course: course});
+            Office.find({type: 'car'}, (err, offices) => {
+                if(err){
+                    console.log(err)
+                } else {
+                    res.render("./events/new", {currentUser: req.user,header:"Driver Nauka Jazdy | Motocykle | Dodaj termin", course: course, offices: offices});
+                }
+            })
         }
     })
     
@@ -34,6 +40,7 @@ router.post("/", isLoggedIn, function(req, res){
             console.log(err);
         } else {
             event.course = req.params.course_id;
+            event.office = req.body.office;
             event.save();
             Course.findById(req.params.course_id, function(err, course){
                 if(err){
@@ -59,7 +66,19 @@ router.get("/:event_id/edit", isLoggedIn, function(req, res){
                     console.log(err)
         
                 } else {
-                    res.render("./events/edit", {currentUser: req.user,header:"Driver Nauka Jazdy | Motocykle | Edytuj termin", event:event, course: course});
+                    Office.find({type: 'car'}, (err, offices) => {
+                        if(err){
+                            console.log(err)
+                        } else {
+                            res.render("./events/edit", {
+                                currentUser: req.user,
+                                header:"Driver Nauka Jazdy | Motocykle | Edytuj termin", 
+                                event:event, 
+                                course: course,
+                                offices: offices,
+                            });
+                        }
+                    })
                 }
             })
             

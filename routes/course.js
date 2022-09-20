@@ -42,11 +42,16 @@ router.get("/new", isLoggedIn, function(req, res){
 });
 
 router.get("/:category", function(req, res){
-    Course.findOne({category: req.params.category}).populate(["events", "characteristics", "installments", "pictures"]).exec(function(err, course){
+    Course.findOne({category: req.params.category}).populate([{ 
+        path: 'events',
+        populate: {
+          path: 'office',
+          model: 'Office'
+        } 
+     }, "characteristics", "installments", "pictures"]).exec(function(err, course){
         if(err){
             console.log(err)
         } else {
-			console.log(req.params.category)
             res.render("./courses/show", {currentUser: req.user,header:"Driver Nauka Jazdy | Motocykle | Oferta | Kategoria " + course.category, course: course});
         }
     })
@@ -98,21 +103,26 @@ router.get("/:id/add/picture", isLoggedIn, function(req, res){
 })
 
 router.post("/:id/add/picture", upload.single("picture"), function(req, res){
-    cloudinary.uploader.upload(req.file.path, function(result) {
-        Course.findById(req.params.id, function(err, course){
-            if(err){
-                console.log(err)
-            } else {
-                Picture.create({link: result.secure_url}, (err, createdPicture) => {
-                    course.pictures.push(createdPicture);
-                    course.save();
-                    res.redirect("/courses" + course.category)
-                })
-                
-            }
+    if(req.file) {
+        cloudinary.uploader.upload(req.file.path, function(result) {
+            Course.findById(req.params.id, function(err, course){
+                if(err){
+                    console.log(err)
+                } else {
+                    Picture.create({link: result.secure_url}, (err, createdPicture) => {
+                        course.pictures.push(createdPicture);
+                        course.save();
+                        res.redirect("/courses" + course.category)
+                    })
+                    
+                }
+            });
         });
-    });
-   
+    } else {
+        req.flash("error", "Wybierz plik")
+        res.redirect(`/courses/${req.params.id}/add/picture`)
+    }
+    
 })
 
 router.put("/:id", isLoggedIn, function(req, res){
@@ -123,6 +133,16 @@ router.put("/:id", isLoggedIn, function(req, res){
             updatedCourse.type = "motorcycle";
             updatedCourse.save();
             res.redirect("/courses/" + updatedCourse.category);
+        }
+    });
+});
+
+router.get("/:id/delete", isLoggedIn, function(req, res){
+    Course.findByIdAndRemove(req.params.id, function(err, removedCourse){
+        if(err){
+            console.log(err)
+        } else {
+            res.redirect("/subpages/strona-główna");
         }
     });
 });

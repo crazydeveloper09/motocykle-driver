@@ -12,7 +12,10 @@ body {
   background:#eeeeee;
   height: 100vh;
 }
-
+.form-control:focus {
+  box-shadow: none;
+  border: 2px solid #1960d1;
+}
 a {
   font-size: 20px;
   color:  black;

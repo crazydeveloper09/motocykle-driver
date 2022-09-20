@@ -16,22 +16,20 @@
 
                 <form action="/courses/<%= course._id %>/events" method="post">
                     <p class="username">Wybierz miasto</p>
-                    <select name="city" class="form-control">
-                        
-                        <option>Głogów</option>
-                        <option>Wschowa</option>
-
-
+                    <select name="office" class="form-control" required>
+                        <% offices.forEach((office) => { %>
+                            <option value="<%= office._id %>"><%= office.city %></option>
+                        <% }) %>
                     </select>
                     <br>
 
                     <p class="username">Wpisz/wybierz datę</p>
-                    <input type="date" name="date" placeholder="Data" class="form-control">
+                    <input type="date" name="date" placeholder="Data" class="form-control" required>
                     <br>
                     <p class="username">Wpisz czas</p>
-                    <input type="time" name="time" placeholder="Czas" class="form-control">
+                    <input type="time" name="time" placeholder="Czas" class="form-control" required>
                     <br>
-
+                    
                     <input type="submit" value="Dodaj termin" class="btn btn-primary button btn-gradient">
                     <input type="reset" value="Wyczyść" class="btn btn-dark button btn-black">
                 </form>
