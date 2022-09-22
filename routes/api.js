@@ -16,12 +16,11 @@ app.use(methodOverride("_method"));
 app.use(flash());
 
 router.get("/events", (req, res) => {
-    Event.find({type: 'motocycle'}).populate(["course", "office"]).sort({date: 1}).exec(function(err, events){
+    Event.find({type: 'motorcycle'}).populate(["course", "office"]).sort({date: 1}).limit(6).exec(function(err, events){
         if(err){
             console.log(err);
         } else {
             res.json(events);
-           
         }
     })
 });

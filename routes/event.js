@@ -5,6 +5,7 @@ const express             = require("express"),
     methodOverride        = require("method-override"),
     Event                = require("../models/event"),
     Course                = require("../models/course"),
+    Office                = require("../models/office"),
     flash                 = require("connect-flash"),
     dotenv                = require("dotenv");
 
@@ -28,10 +29,7 @@ router.get("/new", isLoggedIn, function(req, res){
             })
         }
     })
-    
-           
-        
-    
+
 })
 
 router.post("/", isLoggedIn, function(req, res){

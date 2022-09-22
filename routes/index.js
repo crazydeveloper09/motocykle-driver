@@ -17,10 +17,7 @@ app.use(methodOverride("_method"));
 app.use(flash());
 
 router.get("/", function(req, res){
-   
     res.redirect("/subpages/strona-główna");
-               
-   
 })
 
 
@@ -55,13 +52,13 @@ router.post("/login", passport.authenticate("local", {
 
 });
 router.get("/logout", function(req, res) {
-    req.logout();
-    res.redirect("/");
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        res.redirect('/subpages/strona-główna');
+    });
 });
 
 router.post("/register", function(req, res){
-    
-   
         let newDriver = new Driver({
             username: req.body.username
             

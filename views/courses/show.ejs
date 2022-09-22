@@ -84,7 +84,7 @@
                                     <% for(let i=0;i<course.events.length;i++){ %>
                                         <li class="info">
                                             <strong>
-                                                <%= course.events[i].city %></strong>, <%= course.events[i].date %>, <%= course.events[i].time %>
+                                                <%= course.events[i].office.city %></strong>, <%= course.events[i].date %>, <%= course.events[i].time %>
                                             <a href="/applications/new?event_id=<%= course.events[i]._id %>" class="text-blue">Zapisz się</a>
                                             <% if(currentUser){ %>
                                                 <br>

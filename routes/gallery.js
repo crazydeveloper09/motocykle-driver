@@ -60,7 +60,7 @@ router.get("/new", isLoggedIn, function(req, res){
 });
 
 router.get("/:id", function(req, res){
-    Gallery.findById(req.params.id, function(err, gallery){
+    Gallery.findById(req.params.id).populate("pictures").exec(function(err, gallery){
         if(err){
             console.log(err)
         } else {
@@ -145,8 +145,9 @@ router.post("/:id/add/picture", upload.single("picture"), function(req, res){
                 if(err){
                     console.log(err)
                 } else {
+                    console.log(result)
                     Picture.create({link: result.secure_url}, (err, createdPicture) => {
-                        gallery.pictures.push(createdPicture);
+                        gallery.pictures.push(createdPicture._id);
                         gallery.save();
                         res.redirect("/gallery/" + gallery._id)
                     })
@@ -179,6 +180,7 @@ router.post("/:id/edit/profile", upload.single("profile"), function(req, res){
                 if(err){
                     console.log(err)
                 } else {
+                    console.log(result)
                     gallery.profile = result.secure_url;
                     gallery.save();
                     res.redirect("/gallery/" + gallery._id)

@@ -85,9 +85,6 @@ router.get("/:id/edit", isLoggedIn, function(req, res){
         } else {
             
             res.render("./courses/edit", {currentUser: req.user,header:"Driver Nauka Jazdy | Motocykle | Edytuj kurs", course: course});
-                   
-                
-            
         }
     })
 });

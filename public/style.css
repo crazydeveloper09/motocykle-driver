@@ -79,10 +79,6 @@ input[type=password],
 input[type=time],
 input[type=number],
 input[type=date] {
-    background: none;
-    border-color: black;
-    border: none;
-    border-bottom: 1px solid black;
     color: black;
 }
 
@@ -91,30 +87,20 @@ input[type=tel]:focus,
 input[type=email]:focus,
 input[type=password]:focus,
 input[type=number]:focus {
-    background: none;
+    border: 2px solid #1960d1;
+    color: #1960d1;
     box-shadow: none;
 }
 .sidebar {
     background: linear-gradient(#131314, #1960d1);
 }
-input[type=text]::placeholder,
-input[type=tel]::placeholder,
-input[type=email]::placeholder,
-input[type=password]::placeholder,
-input[type=number]::placeholder {
-    color: black;
-}
 
-#textarea::placeholder {
-    
-    color: black;
-}
 
-#textarea {
-    background: none;
-    border: none;
-    border-bottom: 1px solid black;
-    color: black;
+
+#textarea:focus {
+    border: 2px solid #1960d1;
+    color: #1960d1;
+    box-shadow: none;
 }
 .card {
     background: #eeeeee;
@@ -123,12 +109,7 @@ input[type=number]::placeholder {
 #side {
     display: block;
 }
-input[type=search] {
-    background: none;
-    border: none;
-    border-bottom: 1px solid #1960d1;
-    color: #1960d1;
-}
+
 
 input[type=search]::placeholder {
     color: #1960d1;
@@ -138,14 +119,26 @@ input[type=search]::placeholder {
     color: #1960d1;
 }
 
-.btn-blue {
-    color: #1960d1;
+.btn.btn-blue {
+    background: #1960d1;
     padding: 7px 12px;
     border: 1px solid #1960d1;
+    color: white;
     border-radius: 0.4em;
 }
-.btn-blue:hover {
+.btn.btn-blue:hover {
     background: #1960d1;
+    color: white;
+}
+.btn.btn-full {
+    width: 100%;
+    font-weight: 700;
+}
+.btn.btn-black {
+    background: #131314;
+    border: 1px solid  #131314;
+    border-radius: 0.4em;
+    padding: 7px 12px;
     color: white;
 }
 

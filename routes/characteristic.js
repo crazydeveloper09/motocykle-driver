@@ -22,10 +22,7 @@ router.get("/new", isLoggedIn, function(req, res){
             res.render("./characteristic/new", {currentUser: req.user,header:"Driver Nauka Jazdy | Motocykle | Dodaj cechę charakterystyczną", course: course});
         }
     })
-   
-           
-        
-   
+
 });
 
 router.post("/", isLoggedIn, function(req, res){

@@ -43,11 +43,7 @@ router.get("/:id/edit", isLoggedIn, function(req, res){
         if(err){
             console.log(err); 
         } else {
-           
             res.render("./driver/edit", {currentUser: req.user,header:"Driver Nauka Jazdy | Motocykle | Edytuj użytkownika", driver: driver});
-                   
-               
-            
         }
     })
 });
