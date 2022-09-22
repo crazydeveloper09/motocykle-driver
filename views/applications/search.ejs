@@ -55,7 +55,7 @@
                             <p>
                                 <% if(applications[i].isApplicated === false){ %>
                                 <form action="/application/<%= applications[i]._id %>/accepted" method="post">
-                                    <input type="submit" value="Zapisany na kurs" class="btn btn-outline-success">
+                                    <input type="submit" value="Potwierdź zapisanie" class="btn btn-success">
                                 </form>
                                 <% } else { %>
                                 <a href="/application/<%= applications[i]._id %>/delete" class="btn btn-blue">Usuń
