@@ -1,35 +1,32 @@
 <%- include("../partials/headera") %>
 <div class="col-lg-6 col-md-12" id="form">
     <div class="row justify-content-center">
-        <div class="col-lg-8 col-md-12" style="margin-top: 17%">
+        <div class="col-lg-8 col-md-12" style="margin-top: 18%">
             <div id="form1">
-                <a href="/courses/<%= course.category %>">
+                <a href="/contact">
                     <i class="fas fa-arrow-left"></i>
-                    Wróć do strony kategorii <%= course.category %>
+                    Wróć do podstrony kontakt
                 </a>
-                <h1 class="login">Dodaj zdjęcie do kursu <%= course.category %></h1>
+                <h1 class="login">Dodaj zdjęcie do podstrony Kontakt</h1>
                 <% if(error.length > 0){ %>
                 <div class="alert alert-danger" role="alert">
                     <%= error %>
                 </div>
                 <% } %>
 
-
-                <form action="/courses/<%= course._id %>/add/picture" method="post" enctype="multipart/form-data">
+                <form action="/driver/<%= driver._id %>/add/picture" method="post" enctype="multipart/form-data">
 
 
                     <p class="username">Wybierz zdjęcie</p>
                     <input type="file" name="picture">
                     <br>
                     <br>
-                    <input type="submit" value="Dodaj zdjęcie do kursu" class="btn btn-primary button btn-gradient">
+                    <input type="submit" value="Dodaj zdjęcie" class="btn btn-danger button btn-gradient">
                     <input type="reset" value="Wyczyść" class="btn btn-dark button btn-black">
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-
 </body>
 </html>

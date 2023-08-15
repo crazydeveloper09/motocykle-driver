@@ -27,12 +27,16 @@ router.get("/contact", function(req, res){
         if(err) {
             console.log(err)
         } else {
-            res.render("contact", {currentUser: req.user, header:"Driver Nauka Jazdy | Motocykle | Kontakt", user:user});
+            Event.find({type: 'motorcycle'}).populate(["course", "office"]).sort({date: 1}).limit(6).exec(function(err, events){
+                if(err){
+                    console.log(err);
+                } else {
+                    res.render("contact", {currentUser: req.user, header:"Driver Nauka Jazdy | Motocykle | Kontakt", user:user, events});
+                }
+            })
         }
     })
             
-           
-       
     
 })
 

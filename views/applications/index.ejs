@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <p class="text-center text-blue" id="name">
+            <p class="text-center text-danger" id="name">
                 Zapisy na kursy
                 <br>
                 <span class="school">Z formularza na stronie</span>
@@ -14,16 +14,15 @@
                 <div class="input-group mb-3">
                     <input type="search" id="news" class="form-control" name="name" placeholder="Wpisz imię/nazwisko" aria-label="Wpisz imię/nazwisko" aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-blue" type="submit" style="border:none;"><i class="fas fa-search"></i></button>
+                        <button class="btn btn-danger" type="submit"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
             </form>
             <div class="dropdown text-center">
-                <button class="btn btn-blue dropdown-toggle justify-content-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   Wyszukaj po kategorii
+                <button class="btn btn-danger dropdown-toggle justify-content-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Wyszukaj po kategorii
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background: #eeeeee" id="applications">
-                
                 </div>
             </div>
         </div>
@@ -42,7 +41,7 @@
             <% for(let i=applications.length-1;i>=0;i--){ %>
                 <div class="col-lg-4 col-md-6 col-sm-12" style="margin-top:10px">
                     <div class="card" style="background: #eeeeee">
-                        <div class="card-title text-center text-blue toyota">
+                        <div class="card-title text-center text-danger toyota">
                             <br>
                             Zapis na kurs <%= applications[i]._id %>
                         </div>
@@ -52,15 +51,15 @@
                             <p class="info">Nr telefonu: <strong><%= applications[i].phone %></strong></p>
                             <p class="info">Email: <strong><%= applications[i].email %></strong></p>
                             <p class="info">Kategoria: <strong><%= applications[i].course.category %></strong></p>
-                            <p class="info">Data i godzina: <strong><%= applications[i].event.office.city %>, <%= applications[i].event.date %>
-                                <%= applications[i].event.time %></strong></p>
+                            <p class="info">Data i godzina: <strong><%= applications[i].event?.office.city %>, <%= applications[i].event?.date %>
+                                <%= applications[i].event?.time %></strong></p>
                             <p>
                                 <% if(applications[i].isApplicated === false){ %>
                                 <form action="/application/<%= applications[i]._id %>/accepted" method="post">
                                     <input type="submit" value="Potwierdź zapisanie" class="btn btn-success">
                                 </form>
                                 <% } else { %>
-                                <a href="/application/<%= applications[i]._id %>/delete" class="btn btn-blue">Usuń
+                                <a href="/application/<%= applications[i]._id %>/delete" class="btn btn-danger">Usuń
                                     aplikację</a>
                                 <% } %>
     

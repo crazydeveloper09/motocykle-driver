@@ -64,7 +64,13 @@ router.get("/:id", function(req, res){
         if(err){
             console.log(err)
         } else {
-            res.render("./gallery/show", {currentUser: req.user, header:"Driver Nauka Jazdy | Motocykle | Galeria | " + gallery.title, gallery: gallery});
+            Event.find({type: 'motorcycle'}).populate(["course", "office"]).sort({date: 1}).limit(6).exec(function(err, events){
+                if(err){
+                    console.log(err);
+                } else {
+                    res.render("./gallery/show", {currentUser: req.user, header:"Driver Nauka Jazdy | Motocykle | Galeria | " + gallery.title, gallery: gallery, events: events});
+                }
+            })
         }
     });
 })

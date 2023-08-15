@@ -1,11 +1,10 @@
 body {
   width: 100vw;
   height: 100vh;
-  background:  linear-gradient(#1960d1, #131314);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Karla', sans-serif;
 }
 #info {
-  background:  linear-gradient(#1960d1, #131314);
+  background:  #1960d1;
   height: 100vh;
 }
 #form {
@@ -23,7 +22,7 @@ a {
 
 
 #form .login {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Epilogue', sans-serif;
   font-size: 45px;
   font-weight: 700;
   color: #1960d1;

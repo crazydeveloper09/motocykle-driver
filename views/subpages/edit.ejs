@@ -31,12 +31,11 @@
                         value="<%= subpage.more %>" class="form-control" required>
                     <br>
                     <p class="username">Edytuj opis podstrony</p>
-                    <textarea name="subpage[text]" placeholder="Opis podstrony" id="textarea"
-                        class="form-control" required><%= subpage.text %></textarea>
+                    <textarea name="subpage[text]" placeholder="Opis podstrony" id="textarea" class="form-control" required><%= subpage.text %></textarea>
 
                     <br>
 
-                    <input type="submit" value="Edytuj podstronę" class="btn btn-primary button btn-gradient">
+                    <input type="submit" value="Edytuj podstronę" class="btn btn-danger button btn-gradient">
                     <input type="reset" value="Wyczyść" class="btn btn-dark button btn-black">
                 </form>
                 <br>
@@ -61,9 +60,9 @@
                     <li class="info">akapity -
                         <pre style="color:#212529"> <code> <span> &lt;br&gt; </span> </code>  </pre>
                     </li>
-                    <li class="info">niebieski tekst - np.
+                    <li class="info">czerwony tekst - np.
                         <pre
-                            style="color:#212529"> <code> <span> &lt;del class="text-blue"&gt; wyraz lub wyrażenie &lt;/del&gt; </span> </code>  </pre>
+                            style="color:#212529"> <code> <span> &lt;del class="text-danger"&gt; wyraz lub wyrażenie &lt;/del&gt; </span> </code>  </pre>
                     </li>
                 </ul>
             </div>

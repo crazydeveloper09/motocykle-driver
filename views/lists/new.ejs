@@ -17,11 +17,11 @@
                 <form action="/subpages/<%= subpage._id %>/lists" method="post">
 
                     <p class="username">Wpisz tytuł listy</p>
-                    <textarea required name="title" id="textarea" placeholder="Tytuł listy" class="form-control"></textarea>
+                    <textarea name="title" id="textarea" placeholder="Tytuł listy" class="form-control" required></textarea>
 
                     <br>
 
-                    <input type="submit" value="Dodaj listę" class="btn btn-primary button btn-gradient">
+                    <input type="submit" value="Dodaj listę" class="btn btn-danger button btn-gradient">
                     <input type="reset" value="Wyczyść" class="btn btn-dark button btn-black">
                 </form>
             </div>

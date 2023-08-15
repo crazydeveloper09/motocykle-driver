@@ -7,7 +7,7 @@
                     <i class="fas fa-arrow-left"></i>
                     Wróć do podstrony <%= subpage.name %>
                 </a>
-                <h1 class="login">Edytuj element listy <%= console.log(listElement) %></h1>
+                <h1 class="login">Edytuj element listy</h1>
                 <% if(error.length > 0){ %>
                 <div class="alert alert-danger" role="alert">
                     <%= error %>
@@ -19,11 +19,11 @@
                     method="post">
 
                     <p class="username">Edytuj tekst elementu</p>
-                    <textarea required name="listElement[text]" id="textarea" placeholder="Tekst elementu" class="form-control"><%= listElement.text %></textarea>
+                    <textarea name="listElement[text]" id="textarea" placeholder="Tekst elementu" class="form-control" required><%= listElement.text %></textarea>
 
                     <br>
 
-                    <input type="submit" value="Edytuj element listy" class="btn btn-primary button btn-gradient">
+                    <input type="submit" value="Edytuj element listy" class="btn btn-danger button btn-gradient">
                     <input type="reset" value="Wyczyść" class="btn btn-dark button btn-black">
                 </form>
                 <br>
@@ -48,9 +48,9 @@
                     <li class="info">akapity -
                         <pre style="color:#212529"> <code> <span> &lt;br&gt; </span> </code>  </pre>
                     </li>
-                    <li class="info">niebieski tekst - np.
+                    <li class="info">czerwony tekst - np.
                         <pre
-                            style="color:#212529"> <code> <span> &lt;del class="text-blue"&gt; wyraz lub wyrażenie &lt;/del&gt; </span> </code>  </pre>
+                            style="color:#212529"> <code> <span> &lt;del class="text-danger"&gt; wyraz lub wyrażenie &lt;/del&gt; </span> </code>  </pre>
                     </li>
                 </ul>
             </div>
